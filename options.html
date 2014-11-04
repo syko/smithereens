@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Smithereen settings</title>
+    <style>
+      body {
+        background: #D6EA99;
+      }
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        margin: 40px 0 0;
+        text-shadow: #222 0 0 3px;
+      }
+      .main {
+        margin: 40px;
+        padding: 1px 20px 10px;
+        background: #fff;
+      }
+      pre {
+        background: #f6f6f6;
+        padding: 20px;
+      }
+    </style>
+    <script src="lib/hanson.js"></script>
+    <script src="options.js"></script>
+  </head>
+  <body>
+    <h1>Smithereens</h1>
+    <div class="main">
+      <h2>Config:</h2>
+      <input type="file" name="config" id="id_config" />
+      <p><strong>Current config:</strong></p>
+      <pre id="id_currentConfig"></pre>
+      <h2>Smithereens:</h2>
+      <input type="file" name="smithereens" id="id_smithereens" />
+      <p><strong>Current smithereens:</strong></p>
+      <pre id="id_currentSmithereens"></pre>
+    </div>
+  </body>
+</html>
+

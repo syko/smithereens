@@ -1,0 +1,18 @@
+{
+  "ctrl+shift+1": `Hey {client-name},
+
+Many thanks for writing us.
+
+Could you please elaborate:
+
+I look forward to hearing from you soon!
+
+Have a wonderful day!`,
+  "ctrl+shift+2": `Hi {client-name},
+
+Your kind words are inspiring. The day just got much better.
+You know where to find us if there are any further questions or comments.
+
+Good luck with your next endevours!`
+
+}

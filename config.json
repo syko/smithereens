@@ -1,0 +1,8 @@
+{
+  "replacements": {
+    "{client-name}": [
+      "firstWord(getNodeValue(findNode('.case_customer_tab .a-details')))",
+      "findRegex(findNodes('.customer_history_ticket_email_body'), 'Name:\\s*([a-zA-Z-]+)', 1)"
+    ]
+  }
+}
