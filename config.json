@@ -1,7 +1,7 @@
 {
   "replacements": {
     "{client-name}": [
-      "firstWord(getNodeValue(findNode('.case_customer_tab .a-details')))",
+      "firstWord(getNodeValue(findNode('.a-case-tab:not(.ui-tabs-hide) .case_customer_tab .a-details')))",
       "findRegex(findNodes('.customer_history_ticket_email_body'), 'Name:\\s*([a-zA-Z-]+)', 1)"
     ]
   }
