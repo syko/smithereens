@@ -28,6 +28,7 @@ var smithereenOptions = {
 
   getCurrentConfig: function(cb) {
     chrome.storage.sync.get('config', (function(data) {
+      if(!data.config) data = {config: SMITHEREEN_DEFAULT_CONFIG}
       if(cb) cb(data);
     }).bind(this));
   },

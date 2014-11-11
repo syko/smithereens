@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.desk.com/*"],
-      "js": ["lib/keymaster.js", "content.js"]
+      "js": ["lib/keymaster.js", "defaultConfig.js", "content.js"]
     }
   ],
   "browser_action": {

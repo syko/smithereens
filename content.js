@@ -42,6 +42,7 @@ var smithereensApp = {
       return true;
     }
     chrome.storage.sync.get('config', (function(data) {
+      if(!data.config) data = {config: SMITHEREEN_DEFAULT_CONFIG}
       this.config = data.config;
       chrome.storage.sync.get('smithereens', (function(data) {
         this.smithereens = data.smithereens;
