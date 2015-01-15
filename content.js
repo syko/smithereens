@@ -96,10 +96,10 @@ var smithereensApp = {
 
     // Calculate selection start and end from final concatenated value
 
-    var selectionStart = Math.max(0, inputValue.search(/{\|}/))
+    var selectionStart = inputValue.search(/{\|}/)
     inputValue = inputValue.replace('{|}', '')
 
-    var selectionEnd = Math.max(0, inputValue.search(/{\|}/))
+    var selectionEnd = inputValue.search(/{\|}/)
     inputValue = inputValue.replace('{|}', '')
 
     if(selectionStart == -1) {
