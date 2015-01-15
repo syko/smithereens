@@ -7,7 +7,11 @@ var smithereenOptions = {
       alert("Some error");
     }).bind(this);
     reader.onload = (function(e) {
-      var config = HanSON.parse(e.target.result);
+      try {
+        var config = HanSON.parse(e.target.result);
+      } catch(e) {
+        alert(e);
+      }
       this.storeConfig(config, configName);
     }).bind(this);
     reader.readAsText(fileName);
