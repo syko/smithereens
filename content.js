@@ -19,6 +19,37 @@ var utils = {
     }
   },
 
+  insertAtCaret: function(node, str) {
+    if(node.selectionStart || node.selectionStart === 0) {
+      var startPos = node.selectionStart;
+      var endPos = node.selectionEnd;
+      finalValue = node.value.substring(0, startPos) + str + node.value.substring(endPos, node.value.length);
+    } else {
+      finalValue = node.value + str;
+      node.value += str;
+    }
+    node.value = finalValue
+    return finalValue;
+  },
+
+  selectRange: function(node, start, end) {
+    node.value = node.value;
+    if (node.createTextRange) {
+      var range = node.createTextRange();
+      range.collapse(true)
+      range.moveStart('character', start);
+      range.moveEnd('character', end || start);
+      range.select();
+    } else {
+      if (node.selectionStart || node.selectionStart === 0) {
+        node.focus();
+        node.setSelectionRange(start, end || start);
+      } else  {
+        node.focus();
+      }
+    }
+  },
+
   findNode: function(selector) {
     return document.querySelector(selector);
   },
@@ -59,14 +90,30 @@ var smithereensApp = {
   },
 
   applySmithereen: function (e, key, smithereen) {
-    // var caretPosition = smithereen.replace('\n', '').search(/{\|}/)
-    // smithereen = smithereen.replace('{|}', '')
-    utils.setNodeValue(document.activeElement, this.bakeSmithereen(smithereen));
-    // if(caretPosition == -1) {
-    //   caretPosition = utils.getNodeValue(document.activeElement).length;
-    // }
-    // document.activeElement.selectionStart = document.activeElement.selectionEnd = caretPosition;
+
+    smithereen = this.bakeSmithereen(smithereen);
+    var inputValue = utils.insertAtCaret(document.activeElement, smithereen);
+
+    // Calculate selection start and end from final concatenated value
+
+    var selectionStart = Math.max(0, inputValue.search(/{\|}/))
+    inputValue = inputValue.replace('{|}', '')
+
+    var selectionEnd = Math.max(0, inputValue.search(/{\|}/))
+    inputValue = inputValue.replace('{|}', '')
+
+    if(selectionStart == -1) {
+      selectionStart = inputValue.length;
+    }
+    if(selectionEnd == -1) {
+      selectionEnd = undefined;
+    }
+
+    utils.setNodeValue(document.activeElement, inputValue); // Lose the {|}
+    utils.selectRange(document.activeElement, selectionStart, selectionEnd);
+
     document.activeElement.dispatchEvent(new Event('input')); // Force desk's autosize
+
   },
 
   bakeSmithereen: function (smithereen) {
@@ -117,5 +164,4 @@ var smithereensApp = {
 
 };
 
-// Run our kitten generation script as soon as the document's DOM is ready.
 smithereensApp.init();
