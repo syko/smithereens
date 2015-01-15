@@ -1,19 +1,37 @@
+/*
+ * Specify your smithereens here.
+ * Editing this file is a pain in the ass but building a UI takes time... :(
+ *
+ * You can combine 'ctrl', 'shift'/'⇧', 'alt',' options'/'⌥' and 'command'/'⌘' keys with other keys as necessary.
+ * Here are some examples of valid keyboard shortcuts:
+ * - ctrl+1
+ * - ⌘+r
+ * - g
+ * - f3
+ * - shift+alt+m
+ * - ctrl+shift+up
+ * - pagedown
+ * - ctrl+shift+end
+ *
+ * You can even specify multiple shortcuts for the same snippet with a comma:
+ * ctrl+f, ctrl+g (as in "ctrl+f, ctrl+g": `something`)
+ *
+ * However, common and too simple shortcuts (such as f1 or ctrl+1) will probably collide with OS/browser shortcuts
+ * so choose wisely and prosper!
+ *
+ * Btw it doesn't matter if there's a comma after the last element in this file or not.
+ */
+
 {
-  "ctrl+shift+1": `Hey {client-name},
+  "ctrl+shift+1": `simple smithereen here`,
+  "ctrl+shift+2": `This will be replaced with the customer's name: {client-name}`,
+  "ctrl+shift+3": `You can specify the cursor position with {|} <-- this thing`,
+  "ctrl+shift+4": `Text wrapped within two of those {|}things{|} will be selected automatically`,
+  "ctrl+shift+5": `If you want to add newlines
+you have to do it like this (no spaces or tabs at the beginning of the line)`,
+  "ctrl+shift+6": `Hi {client-name},
 
-Many thanks for writing us.
+This is an example.
 
-Could you please elaborate:
-{|}
-
-I look forward to hearing from you soon!
-
-Have a wonderful day!`,
-  "ctrl+shift+2": `Hi {|}{client-name}{|},
-
-Your kind words are inspiring. The day just got much better.
-You know where to find us if there are any further questions or comments.
-
-Good luck with your next endevours!`
-
+Thanks for reporting!`,
 }
